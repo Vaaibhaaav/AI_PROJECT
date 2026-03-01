@@ -1,0 +1,20 @@
+Credit Card Default prediction system
+
+Step 1
+
+Massive Dataset reduced to some features
+
+Step 2
+
+Feature Selection
+
+"We are using a Hybrid Feature Selection Strategy we apply LightGBM Feature Importance to rank the remaining variables by their 'Information Gain.' This ensures our model stays 'Lean'—focusing only on high-signal features like $P_2$ while ignoring low-impact noise."
+
+As our data is imbalanced so we use stratified sampling to sample or measure data
+
+"We chose to perform feature selection on our Aggregated Profile Dataset rather than the raw transactional rows. This allowed us to evaluate the importance of temporal features—such as the difference between a customer's 'Mean' and 'Last' balance—which are the strongest indicators of a sudden shift in credit risk." 
+
+Teacher: "Doesn't changing the balance of the data mess up the probability scores?"
+Your Answer: "Yes, for the final model, it would. But for Feature Selection, we only care about the Ranking of the features. A balanced dataset is actually better for finding which features are the best 'separators'
+
+"We actually implemented a Stochastic Stability Selection approach, which is a specialized form of Bagging. By training our LightGBM selector across multiple stratified sub-samples and averaging the Information Gain, we reduced the variance of our feature rankings. This gave us the stability of Bagging with the high-precision feature interaction detection of Gradient Boosting."
