@@ -2,3 +2,5 @@ polars
 pyarrow
 pytorch-lightning
 lightgbm
+shap
+optuna
